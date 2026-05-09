@@ -1,139 +1,202 @@
+import Link from "next/link";
+import PricingCard from "@/components/PricingCard";
+
+const packages = [
+  {
+    vehicle: "Sedan / Coupe",
+    price: "$140+",
+    note: "Best for smaller daily drivers.",
+  },
+  {
+    vehicle: "SUV / Crossover",
+    price: "$180+",
+    note: "More space, more surfaces, more crumbs. Science.",
+  },
+  {
+    vehicle: "Truck / 3-Row",
+    price: "$220+",
+    note: "Larger vehicles quoted based on condition and layout.",
+  },
+];
+
+const highlights = [
+  {
+    title: "No judgment details",
+    body: "Cars get messy because life gets messy. The job is to clean it, not shame people for it.",
+  },
+  {
+    title: "Clear communication",
+    body: "Pricing, timing, service limits, and changes get discussed upfront.",
+  },
+  {
+    title: "Clean reset",
+    body: "Interior, exterior, and full detail options built around real-life vehicle care.",
+  },
+];
+
+const servicePreview = [
+  "Interior Reset",
+  "Exterior Wash",
+  "Full Detail",
+  "Maintenance Detail",
+];
+
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden">
-      {/* Background Glow */}
       <div className="pointer-events-none absolute inset-0 opacity-40">
-        <div className="absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-mavs-blue blur-3xl opacity-20" />
-        <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-mavs-green blur-3xl opacity-10" />
+        <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-mavs-blue opacity-20 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-mavs-green opacity-10 blur-3xl" />
       </div>
 
-      {/* Navigation */}
-      <header className="relative z-10 border-b border-border backdrop-blur-sm">
-        <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6">
-          <div className="flex flex-col">
-            <span className="text-lg font-semibold tracking-tight">
-              YOUR DETAIL NAME
-            </span>
-
-            <span className="text-xs uppercase tracking-[0.2em] text-foreground-muted">
-              Dallas • Fort Worth
-            </span>
-          </div>
-
-          <nav className="hidden items-center gap-8 text-sm text-foreground-muted md:flex">
-            <a href="#services" className="transition hover:text-white">
-              Services
-            </a>
-
-            <a href="#pricing" className="transition hover:text-white">
-              Pricing
-            </a>
-
-            <a href="#about" className="transition hover:text-white">
-              About
-            </a>
-
-            <a href="#contact" className="transition hover:text-white">
-              Contact
-            </a>
-          </nav>
-
-          <a
-            href="#booking"
-            className="rounded-full bg-mavs-blue px-5 py-2 text-sm font-medium text-white transition hover:opacity-90"
-          >
-            Book Now
-          </a>
-        </div>
-      </header>
-
-      {/* Hero */}
       <section className="relative z-10 flex flex-1 items-center">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-16 px-6 py-24 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-3xl">
+        <div className="mx-auto grid w-full max-w-7xl gap-16 px-6 py-24 lg:grid-cols-[1fr_0.72fr] lg:items-center">
+          <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground-muted backdrop-blur-sm">
               <div className="h-2 w-2 rounded-full bg-mavs-green" />
-
               Hybrid Detailing • Mobile + Location-Based
             </div>
 
             <h1 className="max-w-4xl text-5xl font-semibold leading-tight tracking-tight text-white md:text-7xl">
-              Clean work.
+              Chasing the devil
               <br />
-              Clear communication.
-              <br />
-              Consistent results.
+              out of the details.
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg leading-8 text-foreground-muted md:text-xl">
-              Professional auto detailing serving the Dallas–Fort Worth area.
-              Structured service, fair pricing, and reliable workmanship
-              without the luxury markup nonsense.
+              Life gets hectic. Cars pick up the spills, dust, stress, workdays,
+              road trips, and everything in between. Our mission is to give
+              every customer a clean reset through honest service, clear
+              communication, and detail work that respects both the vehicle and
+              the person behind the wheel.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#booking"
+              <Link
+                href="/book"
                 className="flex h-14 items-center justify-center rounded-full bg-mavs-blue px-8 text-sm font-medium text-white transition hover:opacity-90"
               >
-                Reserve Appointment
-              </a>
+                Request Appointment
+              </Link>
 
-              <a
-                href="#pricing"
+              <Link
+                href="/services"
                 className="flex h-14 items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/10"
               >
-                View Pricing
-              </a>
+                View Services
+              </Link>
             </div>
           </div>
 
-          {/* Hero Card */}
-          <div className="w-full max-w-md rounded-3xl border border-white/10 bg-card p-8 backdrop-blur-xl">
-            <div className="mb-6 flex items-center justify-between">
+          <aside className="w-full rounded-3xl border border-white/10 bg-card p-8 backdrop-blur-xl">
+            <div className="mb-6 flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm text-foreground-muted">
-                  Starting Packages
+                  Starting Package
                 </p>
-
                 <h2 className="mt-1 text-2xl font-semibold text-white">
                   Full Detail
                 </h2>
               </div>
 
-              <div className="rounded-full bg-mavs-green/20 px-3 py-1 text-sm font-medium text-mavs-green">
-                Available
+              <div className="shrink-0 rounded-full bg-mavs-green/20 px-3 py-1 text-sm font-medium text-mavs-green">
+                By appointment
               </div>
             </div>
 
             <div className="space-y-4 border-t border-white/10 pt-6">
-              <div className="flex items-center justify-between">
-                <span className="text-foreground-muted">Sedan</span>
-
-                <span className="font-medium text-white">$140</span>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <span className="text-foreground-muted">SUV</span>
-
-                <span className="font-medium text-white">$180</span>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <span className="text-foreground-muted">
-                  Truck / 3-Row
-                </span>
-
-                <span className="font-medium text-white">$220</span>
-              </div>
+              {packages.map((item) => (
+                <PricingCard key={item.vehicle} {...item} />
+              ))}
             </div>
 
             <div className="mt-8 rounded-2xl border border-white/10 bg-black/30 p-4">
               <p className="text-sm leading-7 text-foreground-muted">
-                Mobile appointments available. Travel fees may apply depending
-                on distance and vehicle condition.
+                Final quotes depend on size, condition, pet hair, stains,
+                odors, trash, travel distance, and requested add-ons.
               </p>
             </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto grid w-full max-w-7xl gap-5 px-6 pb-20 md:grid-cols-3">
+        {highlights.map((item) => (
+          <article
+            key={item.title}
+            className="rounded-3xl border border-border bg-card p-6 backdrop-blur"
+          >
+            <div className="mb-4 h-2 w-10 rounded-full bg-mavs-blue" />
+            <h2 className="text-xl font-semibold text-white">{item.title}</h2>
+            <p className="mt-3 text-sm leading-7 text-foreground-muted">
+              {item.body}
+            </p>
+          </article>
+        ))}
+      </section>
+
+      <section className="relative z-10 mx-auto grid w-full max-w-7xl gap-6 px-6 pb-20 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <div className="rounded-3xl border border-border bg-card p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-mavs-blue">
+            Services
+          </p>
+
+          <h2 className="mt-3 text-3xl font-black tracking-tight">
+            Built for real cars, real messes, and real schedules.
+          </h2>
+
+          <p className="mt-4 text-sm leading-7 text-foreground-muted">
+            Choose the service that matches the condition of the vehicle. If you
+            are not sure, send the details and the quote can be adjusted before
+            anything starts.
+          </p>
+
+          <Link
+            href="/services"
+            className="mt-6 inline-flex rounded-full border border-border px-5 py-2 text-sm font-semibold transition hover:bg-card-hover"
+          >
+            Compare Services
+          </Link>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          {servicePreview.map((service) => (
+            <div
+              key={service}
+              className="rounded-2xl border border-border bg-card p-5"
+            >
+              <div className="mb-4 h-2 w-10 rounded-full bg-mavs-blue" />
+              <p className="font-semibold">{service}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto mb-20 w-full max-w-7xl px-6">
+        <div className="rounded-3xl border border-border bg-gradient-to-br from-card to-mavs-blue/20 p-8">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-mavs-blue">
+                Ready for a reset?
+              </p>
+
+              <h2 className="mt-3 text-3xl font-black tracking-tight">
+                Send the details. Get a real quote.
+              </h2>
+
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-foreground-muted">
+                Include the vehicle type, service area, preferred service, and
+                any condition notes like pet hair, stains, odors, or heavy
+                trash.
+              </p>
+            </div>
+
+            <Link
+              href="/book"
+              className="rounded-full bg-white px-6 py-3 text-center font-semibold text-black transition hover:bg-silver"
+            >
+              Book Appointment
+            </Link>
           </div>
         </div>
       </section>
