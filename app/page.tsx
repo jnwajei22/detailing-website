@@ -193,8 +193,7 @@ export default function Home() {
 
             <Link
               href="/book"
-              className="rounded-full bg-white px-6 py-3 text-center font-semibold text-black transition hover:bg-silver"
-            >
+              className="rounded-full bg-mavs-blue px-6 py-3 text-center font-semibold text-white transition hover:opacity-90"            >
               Book Appointment
             </Link>
           </div>
